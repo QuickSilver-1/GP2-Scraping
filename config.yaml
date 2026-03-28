@@ -1,0 +1,13 @@
+logging:
+  level: INFO
+  file: logs/logs.log
+
+api:
+  base_url: "https://api.example.com/v1"
+  endpoints:
+    - "/listings"
+    - "/details"
+
+scraping:
+  base_url: "https://www.example.com"
+  user_agent: "Mozilla/5.0 ..."
