@@ -1,0 +1,104 @@
+[2m2026-04-03T00:17:57.335816Z[0m [[32m[1minfo     [0m] [1mStarting the service...       [0m
+[2m2026-04-03T00:17:57.336517Z[0m [[32m[1minfo     [0m] [1mStarting scraping...          [0m [36mmethod[0m=[35mscrape[0m [36mservice[0m=[35mSeleniumScraper[0m
+[1mUsing default request storage [0m
+[1mCreated proxy listening on 127.0.0.1:56857[0m
+[1mSelenium Manager binary found at: C:\Users\prusakovR\Documents\GitHub\GP2-Scraping\gp\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe[0m
+[1mExecuting process: C:\Users\prusakovR\Documents\GitHub\GP2-Scraping\gp\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --debug --language-binding python --output json[0m
+[1mchromedriver not found in PATH[0m
+[1mchrome detected at C:\Program Files\Google\Chrome\Application\chrome.exe[0m
+[1mDetected browser: chrome 146.0.7680.178[0m
+[1mRequired driver: chromedriver 146.0.7680.165[0m
+[1mchromedriver 146.0.7680.165 already in the cache[0m
+[1mDriver path: C:\Users\prusakovR\.cache\selenium\chromedriver\win64\146.0.7680.165\chromedriver.exe[0m
+[1mBrowser path: C:\Program Files\Google\Chrome\Application\chrome.exe[0m
+[1mStarted executable: `C:\Users\prusakovR\.cache\selenium\chromedriver\win64\146.0.7680.165\chromedriver.exe` in a child process with pid: 20476 using 0 to output -3[0m
+[1mPOST http://localhost:56858/session {'capabilities': {'firstMatch': [{}], 'alwaysMatch': {'browserName': 'chrome', 'pageLoadStrategy': <PageLoadStrategy.normal: 'normal'>, 'proxy': {'proxyType': 'manual', 'httpProxy': '127.0.0.1:56857', 'sslProxy': '127.0.0.1:56857'}, 'acceptInsecureCerts': True, 'browserVersion': None, 'goog:chromeOptions': {'debuggerAddress': '127.0.0.1:9222', 'extensions': [], 'binary': 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe', 'args': ['--disable-blink-features=AutomationControlled', 'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36', '--window-size=1920,1080', '--user-data-dir=C:\\temp\\chrome_debug_profile', '--proxy-bypass-list=<-loopback>']}}}}[0m
+[1mStarting new HTTP connection (1): localhost:56858[0m
+[1mhttp://localhost:56858 "POST /session HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"capabilities":{"acceptInsecureCerts":true,"browserName":"chrome","browserVersion":"146.0.7680.178","chrome":{"chromedriverVersion":"146.0.7680.165 (4b989da09e15a7dc0de0785cb5ff232aadae3f0f-refs/branch-heads/7680@{#2932})"},"fedcm:accounts":true,"goog:chromeOptions":{"debuggerAddress":"127.0.0.1:9222"},"pageLoadStrategy":"normal","platformName":"","proxy":{"httpProxy":"127.0.0.1:56857","proxyType":"manual","sslProxy":"127.0.0.1:56857"},"setWindowRect":false,"strictFileInteractability":false,"timeouts":{"implicit":0,"pageLoad":300000,"script":30000},"unhandledPromptBehavior":"dismiss and notify","webauthn:extension:credBlob":true,"webauthn:extension:largeBlob":true,"webauthn:extension:minPinLength":true,"webauthn:extension:prf":true,"webauthn:virtualAuthenticators":true},"sessionId":"7cb798acd206da40c21af54efc1d73d3"}} | headers=HTTPHeaderDict({'Content-Length': '839', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"2"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"3"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"4"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"5"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"6"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"7"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"8"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/tree/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"9"}} | headers=HTTPHeaderDict({'Content-Length': '28', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"10"}} | headers=HTTPHeaderDict({'Content-Length': '29', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"11"}} | headers=HTTPHeaderDict({'Content-Length': '29', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Browser.getVersion', 'params': {}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"jsVersion":"14.6.202.31","product":"Chrome/146.0.7680.178","protocolVersion":"1.3","revision":"@19ad7ae2ac645174d8fbf01dfde5f19a6c54f641","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"}} | headers=HTTPHeaderDict({'Content-Length': '276', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Network.setUserAgentOverride', 'params': {'userAgent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Sa...', 'acceptLanguage': 'ru', 'platform': 'Win64'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{}} | headers=HTTPHeaderDict({'Content-Length': '12', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"12"}} | headers=HTTPHeaderDict({'Content-Length': '29', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(// https://github.com/berstend/puppeteer-extra/blob/c44c8bb0224c6bba2554017bfb9d7a1d0119f92f/packag...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"13"}} | headers=HTTPHeaderDict({'Content-Length': '29', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute {'cmd': 'Page.addScriptToEvaluateOnNewDocument', 'params': {'source': '(()=>{\n\t// store the existing descriptor\n\tconst elementDescriptor = Object.getOwnPropertyDescriptor(...'}}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/goog/cdp/execute HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"identifier":"14"}} | headers=HTTPHeaderDict({'Content-Length': '29', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/url {'url': 'https://domclick.ru'}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/url HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/element {'using': 'css selector', 'value': "button[data-e2e-id='main-search-button']"}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/element HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":{"element-6066-11e4-a52e-4f735466cecf":"f.B6A16F1F8985E02569D7EDB73040C108.d.7E968A726A21887161C3864E3239C7BD.e.96"}} | headers=HTTPHeaderDict({'Content-Length': '126', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/execute/sync {'script': '/* isDisplayed */return (function(){return (function(){/*\n\n Copyright The Closure Library Authors.\n ...', 'args': [{'element-6066-11e4-a52e-4f735466cecf': 'f.B6A16F1F8985E02569D7EDB73040C108.d.7E968A726A21887161C3864E3239C7BD.e.96'}]}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/execute/sync HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":true} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mGET http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/element/f.B6A16F1F8985E02569D7EDB73040C108.d.7E968A726A21887161C3864E3239C7BD.e.96/enabled {}[0m
+[1mhttp://localhost:56858 "GET /session/7cb798acd206da40c21af54efc1d73d3/element/f.B6A16F1F8985E02569D7EDB73040C108.d.7E968A726A21887161C3864E3239C7BD.e.96/enabled HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":true} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mPOST http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3/element/f.B6A16F1F8985E02569D7EDB73040C108.d.7E968A726A21887161C3864E3239C7BD.e.96/click {}[0m
+[1mhttp://localhost:56858 "POST /session/7cb798acd206da40c21af54efc1d73d3/element/f.B6A16F1F8985E02569D7EDB73040C108.d.7E968A726A21887161C3864E3239C7BD.e.96/click HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
+[1mCleaning up C:\Users\PRUSAK~1\AppData\Local\Temp\.seleniumwire\storage-b598bf0b-04a9-4fc0-82e5-a9140fda6903[0m
+[1mDELETE http://localhost:56858/session/7cb798acd206da40c21af54efc1d73d3 {}[0m
+[1mhttp://localhost:56858 "DELETE /session/7cb798acd206da40c21af54efc1d73d3 HTTP/1.1" 200 0[0m
+[1mRemote response: status=200 | data={"value":null} | headers=HTTPHeaderDict({'Content-Length': '14', 'Content-Type': 'application/json; charset=utf-8', 'cache-control': 'no-cache'})[0m
+[1mFinished Request              [0m
