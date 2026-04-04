@@ -11,7 +11,6 @@ import src.config as config
 from structlog import BoundLogger
 from selenium_stealth import stealth
 from seleniumwire import webdriver
-from oxymouse import OxyMouse
 import random
 
 class SeleniumScraper:    
