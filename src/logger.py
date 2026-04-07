@@ -1,3 +1,5 @@
+import json
+
 import structlog
 import logging
 
@@ -19,9 +21,12 @@ def get_logger(level: str, filename: str) -> structlog.BoundLogger:
             colors=True,
         )
     )
+    json_formatter = structlog.stdlib.ProcessorFormatter(
+        processor=structlog.processors.JSONRenderer()
+    )
 
     handler_file = logging.FileHandler(filename)
-    handler_file.setFormatter(formatter)
+    handler_file.setFormatter(json_formatter)
     handler_cmd = logging.StreamHandler()
     handler_cmd.setFormatter(formatter)
     

@@ -1,5 +1,5 @@
 logger:
-  level: DEBUG
+  level: ERROR
   output_file: logs/logs.log
 
 parser:
@@ -11,3 +11,12 @@ parser:
 scrapper:
   base_url: "https://www.example.com"
   user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36"
+  domain: "https://domclick.ru"
+
+excel:
+  raw_path: "data/raw/data1.xlsx"
+  temp_path: "data/temp/data.xlsx"
+  processed_path: "data/processed/data.xlsx"
+  raw_sheet_name: "Sheet1"
+  temp_sheet_name: "Sheet1"
+  processed_sheet_name: "Sheet1"
