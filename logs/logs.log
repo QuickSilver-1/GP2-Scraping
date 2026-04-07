@@ -1,0 +1,6 @@
+[2m2026-04-07T18:21:59.909948Z[0m [[32m[1minfo     [0m] [1mStarting the service...       [0m
+[2m2026-04-07T18:21:59.910951Z[0m [[32m[1minfo     [0m] [1mStarting scraping...          [0m [36mmethod[0m=[35mscrape[0m [36mservice[0m=[35mSeleniumScraper[0m
+[1mUsing default request storage [0m
+[1mCreated proxy listening on 127.0.0.1:64492[0m
+[1mSelenium Manager binary found at: C:\Users\dnoss\Projects\pythonProject1\.venv\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe[0m
+[1mExecuting process: C:\Users\dnoss\Projects\pythonProject1\.venv\Lib\site-packages\selenium\webdriver\common\windows\selenium-manager.exe --browser chrome --debug --language-binding python --output json[0m

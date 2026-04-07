@@ -3,10 +3,11 @@ logger:
   output_file: logs/logs.log
 
 parser:
-  base_url: "https://api.example.com/v1"
-  endpoints:
-    - "/listings"
-    - "/details"
+  yandex_geocode_url: "https://geocode-maps.yandex.ru/v1"
+  yandex_routing_url: "https://api.routing.yandex.net/v2"
+  overpass_url: "https://overpass-api.de/api"
+  aqicn_url: "https://api.waqi.info"
+  dadata_url: "https://suggestions.dadata.ru/suggestions/api/4_1"
 
 scrapper:
   base_url: "https://www.example.com"
