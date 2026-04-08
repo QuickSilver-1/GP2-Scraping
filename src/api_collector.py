@@ -1,11 +1,14 @@
+from re import A
 import time
 import requests
-import config
+from src.config import Parser
+from structlog import BoundLogger
+from src.excel_handler import ExcelHandler, DataSetType
 
 GET_OKRUG_URL = "/rs/suggest/address"
 GET_KATEGORY_URL = "/interpreter"
 GET_ECOLOGY_RATE_URL = "/feed/geo"
-GET_ROUTING_URL = "/distancematrix"
+GET_ROUTING_URL = "/driving"
 DELAY = 1
 MAX_RESULTS = 20
 
@@ -30,10 +33,93 @@ OSM_FILTERS = {
 
 
 class ApiCollector:
-    def __init__(self, cfg: config.Parser, radius=1000):
+    def __init__(self, cfg: Parser, logger: BoundLogger, excel_handler: ExcelHandler,  radius=1000):
         self.radius = radius
-        self.cfg = cfg
+        self.cfg: Parser = cfg
+        self.logger: BoundLogger = logger.bind(service="ApiCollector")
+        self.excel_handler: ExcelHandler = excel_handler
 
+    def all_api_collect(self):
+        df = self.excel_handler.get_df(DataSetType.TEMP)
+        
+        keys = ["21c59dc3776a25cce805d8fd597b581b91612174", "29860202402c118d9275914901a7c7764b79cf13"]
+        self.cfg.dadata_api.api_key = "21c59dc3776a25cce805d8fd597b581b91612174"
+        count = 0
+        cords = [[0, 0] for _ in range(len(df))]
+        districts = ["" for _ in range(len(df))]
+        for i, row in df.iterrows():
+            self.logger.info(f"district: {i}")
+            
+            try:
+                data = self.get_okrug(row["Адрес"])
+            except Exception as e:
+                self.logger.error(f"failed to get district with first key: {e}")
+                
+                self.cfg.dadata_api.api_key = keys[count%2]
+                count += 1
+                
+                try:
+                    data = self.get_okrug(row["Адрес"])
+                except Exception as e:
+                    self.logger.error(f"failed to get district with second key: {e}")
+                    continue
+                
+            districts[i] = data.get("city_area", "")
+            cords[i] = (data.get("geo_lat", 0), data.get("geo_lon", 0))
+                
+            time.sleep(0.01)
+            
+        df["АО"] = districts
+        self.logger.info("successfully collected geocoding data")
+        
+        eco_rating = [0 for _ in range(len(df))]
+        for i, cord in enumerate(cords):
+            self.logger.info(f"eco: {i}")
+            
+            if cord[0] == 0 and cord[1] == 0:
+                continue
+            
+            try:
+                aqi = self.get_ecology_rating(cord[0], cord[1])
+            
+            except Exception as e:
+                self.logger.error(f"failed to get eco_rating: {e}")
+                continue
+                
+            eco_rating[i] = aqi
+            time.sleep(0.1)
+        
+        df["Качество воздуха"] = eco_rating
+        self.logger.info("successfully collected eco rating")
+
+        distances = [0 for _ in range(len(df))]
+        for i, cord in enumerate(cords):
+            self.logger.info(f"distance: {i}")
+            
+            if cord[0] == 0 and cord[1] == 0:
+                continue
+                        
+            try:
+                distance = self.get_mocsow_center_distance(cord[0], cord[1])
+        
+            except Exception as e:
+                self.logger.error(f"failed to get distance: {e}")
+                continue
+            
+            distances[i] = distance
+            time.sleep(0.1)
+            
+        df["Расстояние до центра"] = distances
+        self.logger.info("successfully collected distances")
+        
+        # for i, address in enumerate(df["Адрес"]):
+        #     self.logger.error(self.find(address).__str__())
+        #     time.sleep(1)
+        
+        self.logger.info("successfully collected ecosystem")
+        
+        self.excel_handler.save(DataSetType.PROCESSED, df)
+        
     def geocode(self, address):
         resp = requests.get(self.cfg.yandex_api.geocode_url, params={
             "geocode": address,
@@ -103,9 +189,9 @@ out center {MAX_RESULTS};
             time.sleep(DELAY)
         return result
 
-    def get_okrug(self, address):
+    def get_okrug(self, address) -> dict:
         resp = requests.post(f"{self.cfg.dadata_api.base_url}{GET_OKRUG_URL}",
-                             params={
+                             json={
                                  "query": address,
                                  "count": 1,
                              },
@@ -113,18 +199,21 @@ out center {MAX_RESULTS};
                                       "Accept": "application/json",
                                       "Authorization": f"Token {self.cfg.dadata_api.api_key}"
                                       },
-                             timeout=10)
+                             timeout=30)
 
         resp.raise_for_status()
+        self.logger.debug(f"DaData response for address '{address}'")
+        
         suggestions = resp.json().get("suggestions", [])
+
         if not suggestions:
-            raise Exception(f"DaData не нашла адрес: {address}")
+            return {}
 
         data = suggestions[0].get("data", {})
         return data
 
-    def get_ecology_rating(self, lat, lon):
-        resp = requests.get(f"{self.cfg.aqicn_api}{GET_ECOLOGY_RATE_URL}:{lat};{lon}/",
+    def get_ecology_rating(self, lat, lon) -> int:
+        resp = requests.get(f"{self.cfg.aqicn_api.base_url}{GET_ECOLOGY_RATE_URL}:{lat};{lon}/",
                             params={
                                 "token": self.cfg.aqicn_api.api_key,
                             },
@@ -135,16 +224,17 @@ out center {MAX_RESULTS};
                             timeout=10)
 
         resp.raise_for_status()
-        data = resp.json().get("suggestions", [])
+        data = resp.json().get("data", {})
         return data.get("aqi", 0)
 
-    def get_mocsow_center_distance(self, lat, lon):
-        resp = requests.get(f"{self.cfg.yandex_api.routing_url}{GET_ROUTING_URL}",
+    def get_mocsow_center_distance(self, lat, lon) -> int:
+        moscow_center = "37.6176,55.7558"
+        
+        resp = requests.get(f"{self.cfg.yandex_api.routing_url}{GET_ROUTING_URL}/{lon},{lat};{moscow_center}",
                             params={
-                                "origins": f"{lat},{lon}",
-                                "destinations": "55.7558,37.6176",
-                                "mode": "driving",
-                                "apikey": self.cfg.yandex_api.routing_api_key,
+                                "overview": "false",
+                                "steps": "false",
+                                "alternatives": "false"
                             },
                             headers={
                                 "Content-Type": "application/json",
@@ -153,17 +243,12 @@ out center {MAX_RESULTS};
                             timeout=10)
 
         resp.raise_for_status()
-        rows = resp.json().get("rows", [])
-        if not rows:
+        data = resp.json()
+        if data.get("code") != "Ok":
             return 0
-
-        elements = rows[0].get("elements", [])
-        if not elements:
+        
+        routes = data.get("routes", [])
+        if not routes:
             return 0
-
-        element = elements[0]
-
-        if element.get("status") != "OK":
-            return 0
-
-        return element.get("distance", {}).get("value", 0)
+        
+        return routes[0].get("distance", 0)

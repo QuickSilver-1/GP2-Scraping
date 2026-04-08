@@ -1,10 +1,10 @@
 logger:
-  level: ERROR
+  level: INFO
   output_file: logs/logs.log
 
 parser:
   yandex_geocode_url: "https://geocode-maps.yandex.ru/v1"
-  yandex_routing_url: "https://api.routing.yandex.net/v2"
+  yandex_routing_url: "http://router.project-osrm.org/route/v1"
   overpass_url: "https://overpass-api.de/api"
   aqicn_url: "https://api.waqi.info"
   dadata_url: "https://suggestions.dadata.ru/suggestions/api/4_1"
@@ -15,7 +15,7 @@ scrapper:
   domain: "https://domclick.ru"
 
 excel:
-  raw_path: "data/raw/data1.xlsx"
+  raw_path: "data/raw/data"
   temp_path: "data/temp/data.xlsx"
   processed_path: "data/processed/data.xlsx"
   raw_sheet_name: "Sheet1"

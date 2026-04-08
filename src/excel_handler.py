@@ -19,7 +19,6 @@ class ExcelHandler:
     
     def __init__(self, cfg: config.Excel):
         self.cfg = cfg
-        self.raw_workbook = openpyxl.load_workbook(self.cfg.raw_path)
         self.temp_workbook = openpyxl.load_workbook(self.cfg.temp_path)
         self.processed_workbook = openpyxl.load_workbook(self.cfg.processed_path)
         
