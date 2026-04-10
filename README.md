@@ -1,7 +1,15 @@
 # GP2-Scraping
 ![Build Status](https://github.com/QuickSilver-1/GP2-Scraping/actions/workflows/python-app.yml/badge.svg)
 
-<h2>Структура проекта</h2>
+<h3>Состав команды</h3>
+<ol>
+        <li>Прусаков Роман</li>
+        <li>Носова Дарья</li>
+        <li>Дьяков Андрей</li>
+        <li>Нихаенко Никита</li>
+        <li>Платонов Артем</li>
+
+</ul>
 
 <h3>Запуск приложения</h3>
 <h4>Настраиваем env file ---><code>python main.py</code>
@@ -185,3 +193,7 @@
 | `mfc` | количество МФЦ рядом | числовой дискретный | 0.00% | диапазон 0–14 |
 | `lat` | широта | числовой | 0.00% | у части объектов значение 0, это похоже на технический филлер |
 | `lon` | долгота | числовой | 0.00% | у части объектов значение 0, это похоже на технический филлер |
+
+
+
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Don't+worry+be+happy)](https://git.io/typing-svg)
